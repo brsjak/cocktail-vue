@@ -16,9 +16,15 @@ onMounted(() => {
 
 <template>
   <div class="cocktails-view-container">
-    <h1>🍹Random Cocktails App</h1>
+    <div class="cockctails-view-head">
+      <div class="cockctails-view-head-left">
+        <img src="/icons/favicon.png" class="favicon" />
+        <h1>Random Cocktails App</h1>
+      </div>
 
-    <ViewToggle v-model:mode="mode" />
+      <ViewToggle v-model:mode="mode" />
+    </div>
+
     <div v-if="mode === 'grid'">
       <CocktailsGrid :cocktails="cocktailStore.cocktails" />
     </div>
@@ -36,5 +42,22 @@ onMounted(() => {
   flex-direction: column;
   justify-content: center;
   gap: 30px;
+
+  .cockctails-view-head {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+
+    .cockctails-view-head-left {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+
+      .favicon {
+        max-width: 30px;
+      }
+    }
+  }
 }
 </style>

@@ -11,12 +11,22 @@ const emit = defineEmits<{
 
 <template>
   <div class="view-toggle">
-    <button :class="{ active: mode === 'grid' }" @click="emit('update:mode', 'grid')">
-      🔲 Grid
-    </button>
-    <button :class="{ active: mode === 'list' }" @click="emit('update:mode', 'list')">
-      📃 List
-    </button>
+    <div
+      class="view-toggle-item"
+      style="border-radius: 4px 0 0 4px; border-right: none"
+      :class="{ active: mode === 'grid' }"
+      @click="emit('update:mode', 'grid')"
+    >
+      Grid
+    </div>
+    <div
+      class="view-toggle-item"
+      style="border-radius: 0 4px 4px 0; border-left: none"
+      :class="{ active: mode === 'list' }"
+      @click="emit('update:mode', 'list')"
+    >
+      List
+    </div>
   </div>
 </template>
 
@@ -25,19 +35,19 @@ const emit = defineEmits<{
   display: flex;
   justify-content: flex-end;
   float: right;
-  gap: 0.5rem;
 
-  button {
+  .view-toggle-item {
     padding: 0.4rem 0.8rem;
     border: 1px solid #ccc;
     cursor: pointer;
     background: white;
-    border-radius: 4px;
+    font-weight: 500;
+    color: #080808;
   }
 
-  button.active {
-    background-color: #333;
-    color: white;
+  .view-toggle-item.active {
+    background-color: #f1bc29;
+    color: #ffffff;
   }
 }
 </style>
